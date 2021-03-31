@@ -1,0 +1,72 @@
+body {
+    background: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.countainer {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 75px 1fr 75px;
+    grid-gap: 1rem;
+    grid-template-areas: 
+        'header header'
+        'aside main'
+        'footer footer';
+}
+
+header, aside, main, footer {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+header {
+    grid-area: header;
+    background: rgba(148, 247, 198, 0.8);
+}
+
+aside {
+    grid-area: aside;
+    background: rgba(208, 247, 124, 0.8);
+}
+
+main {
+    justify-content: stretch;
+    align-content: stretch;
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-auto-rows: 150px;
+    grid-gap: 1rem;
+    padding: 1rem;
+    background: rgba(187, 85, 138, 0.8);
+}
+
+.img-item {
+    background: rgba(247, 126, 111, 0.8);
+}
+
+footer {
+    grid-area: footer;
+    background: rgba(247, 205, 99, 0.8);
+}
+
+/* Ocultar barra lateral quando a largura da tela estiver menor que 650px*/
+@media (max-width: 650px) {
+    aside {
+        display: none;
+    }
+
+    .countainer {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            'header'
+            'main'
+            'footer';
+    }
+}
